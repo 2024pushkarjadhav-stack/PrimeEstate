@@ -1,0 +1,33 @@
+# Ignore local environment files & secrets
+.env
+.env.*
+*.env
+*.local
+
+# Ignore Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ignore log and temporary files
+*.log
+logs/
+
+# Ignore test suites & fixtures from production image
+test/
+*.test.js
+test-*.js
+
+# Ignore Git & documentation
+.git/
+.gitignore
+*.md
+
+# Ignore IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
