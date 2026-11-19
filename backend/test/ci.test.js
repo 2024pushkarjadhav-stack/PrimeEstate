@@ -95,6 +95,14 @@ async function runAsyncTest(name, fn) {
       'Render internal domain must be allowed'
     );
 
+    // Dynamic FRONTEND_URL environment variable verification
+    process.env.FRONTEND_URL = 'https://custom-primeestate-domain.com';
+    assert.strictEqual(
+      isOriginAllowed('https://custom-primeestate-domain.com'),
+      true,
+      'Origin configured in FRONTEND_URL must be allowed'
+    );
+
     // Requests without origin header (server-to-server, curl)
     assert.strictEqual(isOriginAllowed(null), true, 'Requests with null origin must be allowed');
     assert.strictEqual(isOriginAllowed(undefined), true, 'Requests with undefined origin must be allowed');

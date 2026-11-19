@@ -11,11 +11,18 @@ const getNormalizedOrigins = () => {
     'http://127.0.0.1:3000',
   ];
 
+  const extraUrls = [];
+  if (process.env.FRONTEND_URL) {
+    extraUrls.push(...process.env.FRONTEND_URL.split(','));
+  }
   if (process.env.CLIENT_URL) {
-    // Support comma-separated origins if multiple are specified
-    const clientUrls = process.env.CLIENT_URL.split(',').map((url) =>
-      url.trim().replace(/\/+$/, '')
-    );
+    extraUrls.push(...process.env.CLIENT_URL.split(','));
+  }
+
+  if (extraUrls.length > 0) {
+    const clientUrls = extraUrls
+      .map((url) => url.trim().replace(/\/+$/, ''))
+      .filter(Boolean);
     return [...defaults, ...clientUrls];
   }
 

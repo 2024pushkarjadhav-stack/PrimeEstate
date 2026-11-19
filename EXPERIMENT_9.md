@@ -192,7 +192,8 @@ const isOriginAllowed = (origin) => {
 | `MONGO_URI` | `mongodb+srv://user:pass@cluster.mongodb.net/primeestate?retryWrites=true&w=majority` | MongoDB Atlas connection string |
 | `JWT_SECRET` | `your_ultra_secure_jwt_secret_key_32_chars` | Secret key for signing authentication tokens |
 | `JWT_EXPIRE` | `30d` | Expiration lifetime of client tokens |
-| `CLIENT_URL` | `https://primeestate.vercel.app` | Deployed Vercel frontend URL for CORS |
+| `FRONTEND_URL` | `https://primeestate.vercel.app` | Deployed Vercel frontend URL for CORS (Recommended) |
+| `CLIENT_URL` | `https://primeestate.vercel.app` | Alias for frontend URL (Backward compatible) |
 
 ### Frontend (Vercel Environment)
 | Variable | Example Value | Description |
@@ -248,7 +249,8 @@ Follow these steps to deploy your live platform:
    - `MONGO_URI` = *(Copy your MongoDB Atlas connection string from `backend/.env`)*
    - `JWT_SECRET` = *(Copy your `JWT_SECRET` from `backend/.env` or type a secure random string)*
    - `JWT_EXPIRE` = `30d`
-   - `CLIENT_URL` = `https://localhost:5173` *(We will update this with your Vercel URL in Step 4)*
+   - `FRONTEND_URL` = `http://localhost:5173` *(We will update this with your Vercel URL in Step 4)*
+   - `CLIENT_URL` = `http://localhost:5173` *(Backward compatible alias)*
 6. Click **Create Web Service**.
 7. Wait 2–3 minutes for the build to finish. Once Render shows **Live**, copy your backend service URL (e.g. `https://primeestate-backend.onrender.com`).
 8. Verify in your browser by opening:
